@@ -1,18 +1,17 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
-void linearSearch(int arr[], int n, int key){
-    int c=1;
+int linearSearch(int arr[], int n, int key,int&count){
     for(int i=0;i<n;i++){
+        count++;
         if(arr[i]==key){
-            cout<<"tera dhyan kidhar hai tera element idher hai  "<<c;
-            return;
+            return i;
         }
-        c++;
     }
-    cout<<"nhi hai wo jisse tu dhundh raha hai"<<c;
+    return -1;
 }
 int main(){
     int n;
+    int count=0;
     cout<<"arre size to bata de array ka \n"<<n;
     cin>>n;
     int arr[n];
@@ -23,6 +22,11 @@ int main(){
     int key;
     cout<<"key insert ker\n";
     cin>>key;
-    linearSearch(arr,n,key);
+    int loki = linearSearch(arr,n,key,count);
+    if(loki==-1)
+    cout<<"key is not found\n";
+    else
+    cout<<"key is found at index\n"<<loki<<endl;
+    cout<<"the total no. of comparision is "<<count<<endl;
     return 0;
 }
