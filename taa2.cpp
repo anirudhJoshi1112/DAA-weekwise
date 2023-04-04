@@ -1,26 +1,23 @@
 #include<bits/stdc++.h>
 using namespace std;
-void binarySearch(int arr[], int n, int key){
-    int c=1,s=0,e=n-1;
+int binarySearch(int arr[], int n, int key,int &count){
+    int s=0,e=n-1;
     int m;
     while(s<=e){
-        m=s+(s-e)/2;
-        if(arr[m]==key){
-            cout<<"tera element mil gaya "<<c;
-            return;
-        }
+        m=s+(e-s)/2;
+        count++;
+        if(arr[m]==key)
+        return m;
         else if(arr[m]<key){
             s=m+1;
         }
         else
          e=m-1;
-         c++;
-        
     }
-    cout<<"element is not found"<<c;
+    return -1;
 }
 int main(){
-    int n;
+    int n,count=0;
     cout<<"array ka size daal\n";
     cin>>n;
     int arr[n];
@@ -31,6 +28,11 @@ int main(){
     int key;
     cout<<"enter the key \n";
     cin>>key;
-    binarySearch(arr,n,key);
+    int loki = binarySearch(arr,n,key,count);
+    if(loki==-1)
+    cout<<"key is not found\n";
+    else
+    cout<<"key is found at index\n"<<loki<<endl;
+    cout<<"the total no. of comparision is "<<count<<endl;
     return 0;
 }
