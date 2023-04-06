@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void insertion(int arr[],int n,int& comparisons,int& shifts)
+void insertionSort(int arr[],int n,int& comparisons,int& shifts)
 {
     for(int i=1;i<n;i++){
         int key=arr[i];
@@ -28,7 +28,7 @@ int main()
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-	insertion(arr,n,comparisons,shifts);
+	insertionSort(arr,n,comparisons,shifts);
 	printf("Sorted Array is :- ");
 	for(int i=0;i<n;i++){
 		cout<<arr[i]<<" ";
